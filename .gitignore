@@ -1,0 +1,39 @@
+# Kubernetes and OpenShift gitignore
+# Exclude sensitive files
+
+# Pull secret
+pull-secret.txt
+
+# Install configuration
+install-config.yaml
+
+# Cluster configuration
+*.kubeconfig
+
+# Temporary files
+*.bak
+*.swp
+*~
+
+# Log files
+*.log
+
+# IDE files
+.idea
+.vscode
+
+# Cache directories
+.cache
+__pycache__
+
+# Python distribution directories
+bin/
+lib/
+include/
+
+# Compiled binaries
+*.pyc
+
+# Kubernetes and OpenShift directories
+tmp/
+openshift.local.clusterup/
