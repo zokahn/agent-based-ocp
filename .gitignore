@@ -1,6 +1,9 @@
 # Kubernetes and OpenShift gitignore
 # Exclude sensitive files
 
+kubeadmin-password
+kubeconfig
+
 # Pull secret
 pull-secret.txt
 
