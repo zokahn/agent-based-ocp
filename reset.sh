@@ -1,20 +1,22 @@
 #!/bin/bash
 
+BENCH='/home/kni/git/agent-based-ocp'
+
 #delete install-dir
-rm -rf /home/kni/install-dir
+rm -rf ${BENCH}/install-dir
 
 # create anew and populate
-mkdir -p /home/kni/install-dir
-cp /home/kni/agent-config.yaml /home/kni/install-dir/
-cp /home/kni/install-config.yaml /home/kni/install-dir/
+mkdir -p ${BENCH}/install-dir
+cp ${BENCH}/agent-config.yaml ${BENCH}/install-dir/
+cp ${BENCH}/install-config.yaml ${BENCH}/install-dir/
 
 # generate images and place them into var/lib/libvirt/images
 sudo rm -rf /var/lib/libvirt/images/agent.x86_64.iso
 
 cd /home/kni/
-openshift-install --dir install-dir/ agent create image
-sudo cp /home/kni/install-dir/agent.x86_64.iso /var/lib/libvirt/images/
+openshift-install --dir ${BENCH}/install-dir/ agent create image
+sudo cp ${BENCH}/install-dir/agent.x86_64.iso /var/lib/libvirt/images/
 
 # rebuild the VMs and shut them down
 
-sudo /root/create_ocp-vm-skeleton-singleiface.sh
+sudo ${BENCH}/create_ocp-vm-skeleton-singleiface.sh
